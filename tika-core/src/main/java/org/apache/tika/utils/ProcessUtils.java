@@ -459,8 +459,8 @@ public class ProcessUtils {
     /**
      * Guards against both 0 and negative grants.
      *
-     * @param requestedTimeoutMillis
-     * @param grantedTimeoutMillis
+     * @param requestedTimeoutMillis the timeout the caller asked for, recorded on the result as-is
+     * @param grantedTimeoutMillis   the budget after task-level clipping; triggers fast-path when &lt;= 0
      * @return result, if the process shouldn't be started, otherwise empty optional
      */
     private static Optional<FileProcessResult> failFastIfNoGrantedTimeout(long requestedTimeoutMillis, long grantedTimeoutMillis) {
